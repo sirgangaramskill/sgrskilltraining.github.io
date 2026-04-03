@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGR Skill Centre - Garhmukteshwar</title>
+    <meta name="description" content="SGR Skill Training Centre in Garhmukteshwar - Computer, Stitching, Beauty, English Courses at ₹200/month">
+    <meta name="keywords" content="sgrskill, computer centre in garhmukteshwar, beauty parlor course, silai centre">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8edf2 100%);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(135deg, #004d40, #00695c, #00897b);
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        .contact-bar {
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            padding: 0.6rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            border-radius: 50px;
+            margin: 0.8rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .whatsapp-btn, .admin-btn, .verify-btn {
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-btn { background: #25D366; color: white; }
+        .admin-btn { background: white; color: #00695c; }
+        .verify-btn { background: #ff9800; color: white; }
+
+        .sliders-grid {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .slider-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .slider-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .slider-card h3 {
+            color: #004d40;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 200px;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+
+        .slider-btn.prev { left: 5px; }
+        .slider-btn.next { right: 5px; }
+
+        .dots {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #00695c;
+            width: 16px;
+            border-radius: 10px;
+        }
+
+        .online-tag {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-top: 0.5rem;
+        }
+
+        .courses {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .courses h2 {
+            text-align: center;
+            color: #004d40;
+            margin-bottom: 2rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .fee {
+            background: #e0f2f1;
+            color: #004d40;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .online-class-link a {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.8rem;
+        }
+
+        .enquiry-section {
+            max-width: 500px;
+            margin: 3rem auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #00695c, #004d40);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #004d40, #00251a);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .sliders-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .sliders-grid { grid-template-columns: 1fr; }
+            .slider-container { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="images/logo.png" class="logo" alt="Logo" onerror="this.style.display='none'">
+            <div>
+                <h1>🏫 Sir Ganga Ram Trust Society</h1>
+                <p>Skill Training Centre, Garhmukteshwar</p>
+            </div>
+        </div>
+        <div class="contact-bar">
+            <span><i class="fas fa-phone"></i> 5731355563</span>
+            <span><i class="fab fa-whatsapp"></i> 6398946335</span>
+            <span><i class="fas fa-envelope"></i> sirgangramskill@gmail.com</span>
+        </div>
+        <div class="top-buttons">
+            <a href="https://wa.me/916398946335" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="admin.html" class="admin-btn"><i class="fas fa-lock"></i> Admin</a>
+            <a href="verify.html" class="verify-btn"><i class="fas fa-check-circle"></i> Verify</a>
+        </div>
+    </header>
+
+    <!-- 4 SLIDERS IN ONE ROW - PHOTOS FROM images FOLDER -->
+    <div class="sliders-grid">
+
+        <!-- SLIDER 1: COMPUTER -->
+        <div class="slider-card">
+            <h3><i class="fas fa-laptop-code"></i> 💻 Computer</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="slideChange(0, -1)">❮</button>
+                <div class="slider-track" id="track0">
+                    <div class="slide"><img src="images/computer1.jpg" alt="Computer"></div>
+                    <div class="slide"><img src="images/computer2.jpg" alt="Computer"></div>
+                    <div class="slide"><img src="images/computer3.jpg" alt="Computer"></div>
+                    <div class="slide"><img src="images/computer4.jpg" alt="Computer"></div>
+                </div>
+                <button class="slider-btn next" onclick="slideChange(0, 1)">❯</button>
+            </div>
+            <div class="dots" id="dots0"></div>
+            <div class="online-tag"><i class="fas fa-video"></i> Online Class Available</div>
+        </div>
+
+        <!-- SLIDER 2: STITCHING -->
+        <div class="slider-card">
+            <h3><i class="fas fa-cut"></i> 🪡 Stitching</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="slideChange(1, -1)">❮</button>
+                <div class="slider-track" id="track1">
+                    <div class="slide"><img src="images/stitching1.jpg" alt="Stitching"></div>
+                    <div class="slide"><img src="images/stitching2.jpg" alt="Stitching"></div>
+                    <div class="slide"><img src="images/stitching3.jpg" alt="Stitching"></div>
+                    <div class="slide"><img src="images/stitching4.jpg" alt="Stitching"></div>
+                </div>
+                <button class="slider-btn next" onclick="slideChange(1, 1)">❯</button>
+            </div>
+            <div class="dots" id="dots1"></div>
+        </div>
+
+        <!-- SLIDER 3: BEAUTY -->
+        <div class="slider-card">
+            <h3><i class="fas fa-spa"></i> 💄 Beauty</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="slideChange(2, -1)">❮</button>
+                <div class="slider-track" id="track2">
+                    <div class="slide"><img src="images/beauty1.jpg" alt="Beauty"></div>
+                    <div class="slide"><img src="images/beauty2.jpg" alt="Beauty"></div>
+                    <div class="slide"><img src="images/beauty3.jpg" alt="Beauty"></div>
+                    <div class="slide"><img src="images/beauty4.jpg" alt="Beauty"></div>
+                </div>
+                <button class="slider-btn next" onclick="slideChange(2, 1)">❯</button>
+            </div>
+            <div class="dots" id="dots2"></div>
+        </div>
+
+        <!-- SLIDER 4: ENGLISH -->
+        <div class="slider-card">
+            <h3><i class="fas fa-language"></i> 🗣️ English</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="slideChange(3, -1)">❮</button>
+                <div class="slider-track" id="track3">
+                    <div class="slide"><img src="images/english1.jpg" alt="English"></div>
+                    <div class="slide"><img src="images/english2.jpg" alt="English"></div>
+                    <div class="slide"><img src="images/english3.jpg" alt="English"></div>
+                    <div class="slide"><img src="images/english4.jpg" alt="English"></div>
+                </div>
+                <button class="slider-btn next" onclick="slideChange(3, 1)">❯</button>
+            </div>
+            <div class="dots" id="dots3"></div>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+    <section class="courses">
+        <h2>📚 हमारे कोर्स (सभी ₹200/माह)</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <img src="images/computer1.jpg" alt="Computer">
+                <h3>💻 Computer Courses</h3>
+                <span class="fee">₹200/month</span>
+                <div class="online-class-link"><a href="https://meet.google.com" target="_blank">🎥 Online Class</a></div>
+            </div>
+            <div class="course-card">
+                <img src="images/stitching1.jpg" alt="Stitching">
+                <h3>🪡 Stitching Courses</h3>
+                <span class="fee">₹200/month</span>
+            </div>
+            <div class="course-card">
+                <img src="images/beauty1.jpg" alt="Beauty">
+                <h3>💄 Beauty Culture</h3>
+                <span class="fee">₹200/month</span>
+            </div>
+            <div class="course-card">
+                <img src="images/english1.jpg" alt="English">
+                <h3>🗣️ English Speaking</h3>
+                <span class="fee">₹200/month</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="enquiry-section" id="enquiry">
+        <h2><i class="fas fa-envelope"></i> Admission Enquiry</h2>
+        <form id="enquiryForm">
+            <input type="text" id="enqName" placeholder="Full Name" required>
+            <input type="tel" id="enqPhone" placeholder="Mobile Number" required>
+            <input type="email" id="enqEmail" placeholder="Email ID">
+            <select id="enqCourse" required>
+                <option value="">Select Course</option>
+                <option value="Computer Courses">💻 Computer Courses</option>
+                <option value="Stitching Courses">🪡 Stitching Courses</option>
+                <option value="Beauty Culture Courses">💄 Beauty Culture Courses</option>
+                <option value="English Speaking Courses">🗣️ English Speaking Courses</option>
+            </select>
+            <textarea id="enqMessage" rows="2" placeholder="Your Requirement"></textarea>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Submit Enquiry</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Sir Ganga Ram Trust Society Skill Training Centre, Garhmukteshwar</p>
+        <p>📞 5731355563 | 📱 6398946335 | ✉️ sirgangramskill@gmail.com</p>
+    </footer>
+
+    <script>
+        const slidersCount = 4;
+        let currentIndex = [0, 0, 0, 0];
+        let totalSlides = [4, 4, 4, 4];
+        let autoPlayInterval;
+
+        function createDots() {
+            for(let i = 0; i < slidersCount; i++) {
+                const dotsContainer = document.getElementById(`dots${i}`);
+                if(!dotsContainer) continue;
+                dotsContainer.innerHTML = '';
+                for(let j = 0; j < totalSlides[i]; j++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    dot.onclick = () => goToSlide(i, j);
+                    dotsContainer.appendChild(dot);
+                }
+                updateDots(i);
+            }
+        }
+
+        function updateDots(sliderId) {
+            const dotsContainer = document.getElementById(`dots${sliderId}`);
+            if(!dotsContainer) return;
+            const dots = dotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, idx) => {
+                if(idx === currentIndex[sliderId]) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function updateSlider(sliderId) {
+            const track = document.getElementById(`track${sliderId}`);
+            if(track) {
+                track.style.transform = `translateX(-${currentIndex[sliderId] * 100}%)`;
+            }
+            updateDots(sliderId);
+        }
+
+        function slideChange(sliderId, direction) {
+            let newIndex = currentIndex[sliderId] + direction;
+            if(newIndex < 0) newIndex = totalSlides[sliderId] - 1;
+            if(newIndex >= totalSlides[sliderId]) newIndex = 0;
+            currentIndex[sliderId] = newIndex;
+            updateSlider(sliderId);
+            resetAutoPlay();
+        }
+
+        function goToSlide(sliderId, slideIndex) {
+            currentIndex[sliderId] = slideIndex;
+            updateSlider(sliderId);
+            resetAutoPlay();
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                for(let i = 0; i < slidersCount; i++) {
+                    let newIndex = currentIndex[i] + 1;
+                    if(newIndex >= totalSlides[i]) newIndex = 0;
+                    currentIndex[i] = newIndex;
+                    updateSlider(i);
+                }
+            }, 4000);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        document.getElementById("enquiryForm")?.addEventListener("submit", function(e) {
+            e.preventDefault();
+            let enquiry = {
+                id: Date.now(),
+                name: document.getElementById("enqName").value,
+                phone: document.getElementById("enqPhone").value,
+                email: document.getElementById("enqEmail").value,
+                course: document.getElementById("enqCourse").value,
+                message: document.getElementById("enqMessage").value,
+                date: new Date().toLocaleString()
+            };
+            
+            let enquiries = JSON.parse(localStorage.getItem("enquiries")) || [];
+            enquiries.push(enquiry);
+            localStorage.setItem("enquiries", JSON.stringify(enquiries));
+            
+            let msg = `New Enquiry!%0AName: ${enquiry.name}%0APhone: ${enquiry.phone}%0ACourse: ${enquiry.course}`;
+            window.open(`https://wa.me/916398946335?text=${msg}`, '_blank');
+            
+            alert("✅ Enquiry Submitted! We will contact you on WhatsApp.");
+            this.reset();
+        });
+
+        createDots();
+        startAutoPlay();
+    </script>
+</body>
+</html>
